@@ -1,11 +1,12 @@
-import React from 'react';
-import './Hero.css';
+import React from "react";
+import heroImage from "../../assets/images/hero1.jpg"; // Anpassa sökvägen till din bild
+import "../../assets/Hero.css";
 
-const Hero = () => {
+function Hero() {
   return (
     <section className="hero">
       <div className="hero-image">
-        <img id="hero" src="images/hero1.jpg" alt="Hero" />
+        <img id="hero" src={heroImage} alt="Hero" />
       </div>
       <div className="hero-text">
         <h1>Din modeupplevelse börjar här</h1>
@@ -15,6 +16,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Hero;

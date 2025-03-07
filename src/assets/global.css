@@ -1,35 +1,49 @@
-body {
-    background-color: #f0f0f0;
-    margin: 0;
-}
+body { 
 
-img {
-    max-width: 100%;
-}
+    background-color: #f0f0f0; 
+    margin: 0; 
+} 
 
-/* Typografi */
-h1, h2, h3, p, a {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+img { 
+    max-width: 100%; 
+} 
 
-a {
-    text-decoration: none;
-    color: black;
-}
+ 
 
-/* Responsiva klasser */
-@media (min-width: 640px) {
-    .nav ul {
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        font-size: 18px;
-    }
-}
+/* Typografi */ 
+h1, h2, h3, p, a { 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+} 
 
-@media (min-width: 1024px) {
-    .spots-container {
-        display: flex;
-        padding: 0 10%;
-    }
-}
+a { 
+    text-decoration: none; 
+    color: black; 
+} 
+
+ 
+
+/* Responsiva klasser */ 
+
+@media (min-width: 640px) { 
+    .nav ul { 
+        display: flex; 
+        flex-direction: row; 
+        gap: 5%; 
+        font-size: 18px; 
+    } 
+
+} 
+
+ 
+
+@media (min-width: 1024px) { 
+
+    .spots-container { 
+
+        display: flex; 
+
+        padding: 0 10%; 
+
+    } 
+
+} 

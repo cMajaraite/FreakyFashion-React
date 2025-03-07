@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css"; // Importera CSS
+import "../../assets/Header.css"; 
 import logo from "../../assets/images/FreakyFashionLogo.png";
 import searchIcon from "../../assets/svg/search.svg";
 import favoritesIcon from "../../assets/svg/favorites.svg";
