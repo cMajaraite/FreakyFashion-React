@@ -1,0 +1,35 @@
+body {
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Typografi */
+h1, h2, h3, p, a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Responsiva klasser */
+@media (min-width: 640px) {
+    .nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 5%;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .spots-container {
+        display: flex;
+        padding: 0 10%;
+    }
+}

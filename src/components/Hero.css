@@ -1,0 +1,49 @@
+.hero { 
+
+    border: 1px solid black; 
+
+    border-radius: 15px; 
+
+    background-color: rgb(212, 211, 211); 
+
+    margin-bottom: 2%; 
+
+    padding: 3%; 
+
+    font-size: 18px; 
+
+    margin-top: -20px; 
+
+} 
+
+  
+
+.hero-text h1 { 
+
+    font-size: 2em; 
+
+    text-align: center; 
+
+    text-transform: uppercase; 
+
+} 
+
+  
+
+.text-hero { 
+
+    font-size: 1em; 
+
+    text-align: center; 
+
+} 
+
+.products-grid { 
+
+    margin-top: 2%; 
+
+    margin-bottom: 5%; 
+
+    font-size: 18px; 
+
+} 
