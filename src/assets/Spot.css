@@ -1,0 +1,25 @@
+.spots-container {
+    display: none; 
+}
+
+.spot {
+    position: relative;
+    margin: 1em;
+}
+
+.spot h2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    color: white;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1024px) {
+    .spots-container {
+        display: block;
+        display: flex;
+        padding: 0 10%;
+    }
+}
