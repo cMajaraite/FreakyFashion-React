@@ -6,7 +6,7 @@ const db = new Database("freakyfashion.db", { verbose: console.log });
 
 app.use(express.json()); // Möjliggör JSON-data i POST-requests
 
-const PORT = 3001; // Backend körs på en annan port än frontend
+const PORT = 5000; // Backend körs på en annan port än frontend
 
 // Test-route för att se om servern fungerar
 app.get("/", (req, res) => {
