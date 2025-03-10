@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
     <div className="product">
       <a href={`/products/${product.slug}`}>
         <div className="product-image">
-          <img src={product.image} alt={product.name} />
+        <img src={`http://localhost:5000${product.image}`} alt={product.name} />
           {product.isNew === 1 && <span className="new-badge">Nyhet!</span>}
         </div>
         <div className="product-name">

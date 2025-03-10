@@ -5,9 +5,12 @@ const ProductGrid = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products") // Anpassa till din backend-url
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        console.log(data); // Kontrollera datan för att säkerställa att den innehåller bild-URLs
+        setProducts(data);
+      })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
