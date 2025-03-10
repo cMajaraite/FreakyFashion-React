@@ -1,10 +1,17 @@
 const express = require("express");
 const Database = require("better-sqlite3");
-
+const cors = require('cors');
 const app = express();
+
 const db = new Database("freakyfashion.db", { verbose: console.log });
 
 app.use(express.json()); // Möjliggör JSON-data i POST-requests
+
+app.use(express.static('public'));  // Gör bilder i public-mappen tillgängliga
+
+app.use(cors({
+  origin: "http://localhost:3000", // Tillåt endast förfrågningar från denna URL
+}));
 
 const PORT = 5000; // Backend körs på en annan port än frontend
 
