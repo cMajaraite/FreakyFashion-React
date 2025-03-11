@@ -5,6 +5,7 @@ import Hero from "./components/hero/Hero";
 import Spot from "./components/spot/Spot";
 import ProductGrid from "./components/products/Productgrid";
 import FeatureList from "./components/feature/FeatureList";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Spot />
       <ProductGrid />
       <FeatureList />
+      <Footer />
       <main>
         {/* Här kommer resten av sidan */}
       </main>

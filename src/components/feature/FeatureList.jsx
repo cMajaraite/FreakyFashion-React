@@ -1,5 +1,6 @@
 import React from "react";
 import FeatureItem from "./FeatureItem";
+import "../../assets/Feature.css";
 
 const features = [
   { icon: "/svg/globe.svg", text: "Gratis frakt och retur" },
