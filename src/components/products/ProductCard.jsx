@@ -1,4 +1,5 @@
 import React from "react";
+import "../../assets/Product.css";
 
 const ProductCard = ({ product }) => {
   return (
@@ -15,10 +16,10 @@ const ProductCard = ({ product }) => {
         <div className="product-brand">{product.brand}</div>
       </a>
       <span className="full-heart">
-        <img
-          src={product.isFavorite === 1 ? "/svg/filled-heart.svg" : "/svg/hjärta.svg"}
-          alt="Heart"
-        />
+      <img
+  src={`http://localhost:5000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
+  alt="Heart"
+/>
       </span>
     </div>
   );

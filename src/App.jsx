@@ -4,7 +4,7 @@ import './assets/global.css';
 import Hero from "./components/hero/Hero";
 import Spot from "./components/spot/Spot";
 import ProductGrid from "./components/products/Productgrid";
-
+import FeatureList from "./components/feature/FeatureList";
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Hero />
       <Spot />
       <ProductGrid />
+      <FeatureList />
       <main>
         {/* Här kommer resten av sidan */}
       </main>

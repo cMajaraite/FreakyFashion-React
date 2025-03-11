@@ -1,0 +1,107 @@
+.products-grid {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    font-size: 18px;
+}
+
+.product {
+    margin: 5% auto;
+    position: relative;
+}
+
+.product-image {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    height: max-content;
+    position: relative;
+}
+
+.product img {
+    width: 100%;
+}
+
+.new-badge {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    background-color: black;
+    color: white;
+    padding: 8px 13px;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale (1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.product-name {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+}
+
+.product-brand {
+    font-size: 14px;
+    color: rgb(71, 71, 71);
+    margin-top: 2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.full-heart {
+    position: absolute;
+    width: 50px;
+    bottom: 60px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.empty-heart {
+    position: absolute;
+    width: 40px;
+    bottom: 60px;
+    right: 15px;
+    cursor: pointer;
+}
+
+@media (min-width: 640px) {
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-name {
+        font-size: 12px;
+    }
+
+    .product-brand {
+        font-size: 10px;
+    }
+}
