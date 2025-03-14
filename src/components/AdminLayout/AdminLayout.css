@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Make the app take the full page height */
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
+/* Set Administration header */
+header {
+  background-color: black;
+  padding: 10px;
+  width: 100%;
+  border: none;
+}
+
+.header-text h1 {
+  color: white;
+  font-size: 28px;
+  margin-left: 12px;
+  border: none;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Main content */
+main {
+  height: calc(100% - 48px); /* 48px is the header height */
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  border: none;
+  background-color: white;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: #dddddd;
+  padding: 25px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  color: black;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  color: black;
+  border: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content container */
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+/* Remove borders from all headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border: none;
+}

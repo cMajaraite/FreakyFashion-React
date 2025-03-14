@@ -1,6 +1,6 @@
-// src/routes/NewProduct/NewProduct.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AdminLayout from "../../components/AdminLayout/AdminLayout";
 import "./NewProduct.css";
 
 function NewProduct() {
@@ -45,11 +45,11 @@ function NewProduct() {
   };
 
   return (
-    <div>
-      <h2>Ny produkt</h2>
+    <AdminLayout>
+      <div className="content">
+        <h3>Ny produkt</h3>
 
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <form onSubmit={handleSubmit}>
           <label htmlFor="name">Namn:</label>
           <input
             type="text"
@@ -59,9 +59,7 @@ function NewProduct() {
             onChange={handleInputChange}
             required
           />
-        </div>
 
-        <div className="form-group">
           <label htmlFor="description">Beskrivning:</label>
           <textarea
             id="description"
@@ -70,9 +68,17 @@ function NewProduct() {
             onChange={handleInputChange}
             required
           ></textarea>
-        </div>
 
-        <div className="form-group">
+          <label htmlFor="image">Bild:</label>
+          <input
+            type="url"
+            id="image"
+            name="image"
+            value={formData.image}
+            onChange={handleInputChange}
+            required
+          />
+
           <label htmlFor="brand">Märke:</label>
           <input
             type="text"
@@ -82,9 +88,7 @@ function NewProduct() {
             onChange={handleInputChange}
             required
           />
-        </div>
 
-        <div className="form-group">
           <label htmlFor="sku">SKU:</label>
           <input
             type="text"
@@ -94,9 +98,7 @@ function NewProduct() {
             onChange={handleInputChange}
             required
           />
-        </div>
 
-        <div className="form-group">
           <label htmlFor="price">Pris:</label>
           <input
             type="number"
@@ -106,24 +108,13 @@ function NewProduct() {
             onChange={handleInputChange}
             required
           />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="image">Bild (URL):</label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <button type="submit" className="save-btn">
-          Lägg till
-        </button>
-      </form>
-    </div>
+          <button type="submit" className="save-btn">
+            Lägg till
+          </button>
+        </form>
+      </div>
+    </AdminLayout>
   );
 }
 
