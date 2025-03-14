@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "../../assets/Header.css"; 
 import logo from "../../assets/images/FreakyFashionLogo.png";
 import searchIcon from "../../assets/svg/search.svg";
@@ -6,6 +7,16 @@ import favoritesIcon from "../../assets/svg/favorites.svg";
 import basketIcon from "../../assets/svg/varukorg.svg";
 
 const Header = () => {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      navigate(`/search?q=${query}`);
+    }
+  };
+
   return (
     <header>
       <div className="header">
@@ -17,10 +28,16 @@ const Header = () => {
           </div>
 
           <div className="search-icons">
-            <div className="search">
+            <form className="search" onSubmit={handleSearch}>
               <img src={searchIcon} alt="search-icon" className="search-img" />
-              <input className="search-input" placeholder="Sök produkt" />
-            </div>
+              <input
+                className="search-input"
+                type="text"
+                placeholder="Sök produkt"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+            </form>
 
             <div className="icons">
               <div className="favorite">
@@ -54,3 +71,4 @@ const Header = () => {
 };
 
 export default Header;
+

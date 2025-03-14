@@ -30,6 +30,24 @@ app.get("/products", (req, res) => {
   }
 });
 
+app.get("/products/search", (req, res) => {
+  const query = req.query.q?.toLowerCase();
+  if (!query) {
+    return res.status(400).json({ error: "Ingen sökterm angiven" });
+  }
+
+  try {
+    console.log("Sökterm:", query); // Logga söktermen
+    const sql = `SELECT * FROM products WHERE LOWER(name) LIKE ?`;
+    const products = db.prepare(sql).all(`%${query}%`); // Synkron SQLite-sökning
+    res.json(products);
+  } catch (error) {
+    console.error("DB Error:", error);
+    res.status(500).json({ error: "Fel vid hämtning av produkter" });
+  }
+});
+
+
 // Starta servern
 app.listen(PORT, () => {
   console.log(`Servern körs på http://localhost:${PORT}`);
