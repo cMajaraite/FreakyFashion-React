@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Make the app take the full page height */
 html,
 body,
 #root,
@@ -15,7 +14,6 @@ body,
   color: black;
 }
 
-/* Set Administration header */
 header {
   background-color: black;
   padding: 10px;
@@ -32,9 +30,8 @@ header {
   text-align: left;
 }
 
-/* Main content */
 main {
-  height: calc(100% - 48px); /* 48px is the header height */
+  height: calc(100% - 48px);
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -48,7 +45,6 @@ main {
   background-color: white;
 }
 
-/* Sidebar styling */
 .sidebar {
   width: 200px;
   height: 100%;
@@ -70,7 +66,6 @@ main {
   padding: 0;
 }
 
-/* Main content container */
 .content-container {
   flex-grow: 1;
   padding: 20px;
@@ -80,7 +75,6 @@ main {
   color: black;
 }
 
-/* Remove borders from all headings */
 h1,
 h2,
 h3,

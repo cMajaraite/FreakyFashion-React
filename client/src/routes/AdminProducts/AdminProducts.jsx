@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AdminLayout from "../../components/AdminLayout/AdminLayout";
+import AdminLayout from "../../layouts/AdminLayout";
 import "./AdminProducts.css";
 
 function AdminProducts() {
