@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AdminLayout from "../../layouts/AdminLayout";
 import "./AdminProducts.css";
 
 function AdminProducts() {
@@ -22,7 +21,7 @@ function AdminProducts() {
   }, []);
 
   return (
-    <AdminLayout>
+    <>
       <div className="content-header">
         <h3 className="flex-item">Produkter</h3>
         <div className="button-container">
@@ -66,8 +65,7 @@ function AdminProducts() {
           </tbody>
         </table>
       </div>
-    </AdminLayout>
+    </>
   );
 }
-
 export default AdminProducts;

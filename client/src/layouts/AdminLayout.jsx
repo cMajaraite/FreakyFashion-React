@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import "./AdminLayout.css";
 
-function AdminLayout({ children }) {
+function AdminLayout() {
   return (
     <>
       <header>
@@ -16,7 +16,9 @@ function AdminLayout({ children }) {
             <h2>Produkter</h2>
           </aside>
 
-          <div className="content-container">{children}</div>
+          <div className="content-container">
+            <Outlet />
+          </div>
         </div>
       </main>
     </>

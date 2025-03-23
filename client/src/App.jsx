@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AdminLayout from "./layouts/AdminLayout";
 import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
 import "./App.css";
@@ -8,8 +9,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/admin/products" element={<AdminProducts />} />
-          <Route path="/admin/products/new" element={<NewProduct />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="products" element={<AdminProducts />} />
+            <Route path="products/new" element={<NewProduct />} />
+            <Route index element={<AdminProducts />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

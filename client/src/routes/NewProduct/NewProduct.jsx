@@ -45,7 +45,7 @@ function NewProduct() {
   };
 
   return (
-    <AdminLayout>
+    <>
       <div className="content">
         <h3>Ny produkt</h3>
 
@@ -114,7 +114,7 @@ function NewProduct() {
           </button>
         </form>
       </div>
-    </AdminLayout>
+    </>
   );
 }
 
