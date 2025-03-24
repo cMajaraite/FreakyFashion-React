@@ -1,0 +1,97 @@
+.accordion {
+    display: block;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.footer-title {
+    background-color:white;
+    color: #333;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.accordion-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accordion-content ul li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.footer-section {
+    display: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 4%;
+    margin-bottom: 2%;
+}
+
+@media (min-width: 640px) {
+    .accordion {
+        display: none;
+    }
+
+    .footer {
+        background-color: #dadada;
+        border: 1px solid black;
+        height: 270px;
+        padding: 10px;
+        margin-bottom: 2%;
+    }
+    
+    .footer-section-container {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+    }
+    
+    .footer-section {
+        display: block;
+    }
+    
+    .footer-section h3 {
+        font-size: 16px;
+        margin-left: 5px;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        font-size: 15px;
+    }
+    
+    .footer-section ul li {
+        padding: 5px;
+    }
+    
+    .footer-section ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .footer-bottom  {
+        text-align: center;
+    }
+}
+

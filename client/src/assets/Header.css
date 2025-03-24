@@ -1,0 +1,129 @@
+
+    .header {
+    padding: 2%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .search-icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        margin-top: 2%;
+        max-width: 100%;
+    }
+
+    .search-img {
+        width: 1.2em;
+        margin-left: 3px;
+    }
+
+     .search {
+        display: flex;
+        flex-grow: 1;
+        margin-right: 10px;
+        outline: 1px solid black;
+        border-radius: 20px;
+    }
+
+    .search-input {
+        font-size: 1.2em;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #8d8d8d;
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .favoriter img {
+        width: 20px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin-bottom: 30px;
+        padding: 1%;
+        margin-left: 10px;
+        font-size: 17px;
+    
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: black;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+    }
+
+    .kategori {
+        display: none;
+    }
+
+    @media (min-width: 640px) {
+
+        .logo-search {
+            display: flex;
+            width:100%;
+        }
+    
+        #logo {
+            width: 300px;
+        }
+        
+        .search-icons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            width: 100%;
+            margin-left: 10px;
+        }
+    
+        .search {
+            width: 20em;
+        }
+    
+        .search-img {
+            width: 1em;
+        }
+    
+        .icons {
+            width: max-content;
+            justify-self: end;
+        }
+    
+        .nav ul{
+            display: flex;
+            flex-direction:row;
+            gap: 5%;
+            font-size: 18px;
+            margin-bottom: 40px;
+            margin-left: 2%;
+        }
+     }
+
+     @media (min-width: 1024px) {
+        .search-img {
+            width: 1.5em;
+        }
+
+        .search-input {
+            font-size: 1.3em;
+        }
+    
+        .nav {
+            width: 70%;
+        }
+    
+        .kategori {
+            display: block;
+        }
+     }
