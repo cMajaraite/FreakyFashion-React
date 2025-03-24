@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ProductCard from "../products/ProductCard";
+import "../../assets/SearchResults.css";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -33,7 +34,7 @@ const SearchResults = () => {
 
   return (
     <div>
-      <h2>Sökresultat för "{query}"</h2>
+      <h2>Hittade {products.length} produkter</h2>
 
       {loading && <p>Laddar produkter...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}

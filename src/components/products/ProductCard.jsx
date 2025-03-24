@@ -23,11 +23,13 @@ const ProductCard = ({ product }) => {
         <div className="product-brand">{product.brand || ''}</div>
       </a>
       <span className="full-heart">
-        <img
-          src={`http://localhost:5000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
-          alt="Heart"
-        />
-      </span>
+  <img
+    src={`http://localhost:5000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
+    alt="Heart"
+    className={product.isFavorite === 1 ? 'filled-heart' : 'empty-heart'}
+  />
+</span>
+
     </div>
   );
 };

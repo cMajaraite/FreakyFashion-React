@@ -7,6 +7,7 @@
 .product {
     margin: 5% auto;
     position: relative;
+    padding: 5px;
 }
 
 .product-image {
@@ -62,7 +63,7 @@
 }
 
 .product-brand {
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(71, 71, 71);
     margin-top: 2%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -70,19 +71,13 @@
 
 .full-heart {
     position: absolute;
-    width: 50px;
-    bottom: 60px;
+    width: 40px;
+    bottom: 70px;
     right: 15px;
     cursor: pointer;
 }
 
-.empty-heart {
-    position: absolute;
-    width: 40px;
-    bottom: 60px;
-    right: 15px;
-    cursor: pointer;
-}
+
 
 @media (min-width: 640px) {
     .products-grid {

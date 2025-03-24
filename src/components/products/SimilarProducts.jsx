@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "../../assets/ProductDetails.css";
 
 const SimilarProducts = ({ currentProductId }) => {
   const [similarProducts, setSimilarProducts] = useState([]);
@@ -20,6 +21,7 @@ const SimilarProducts = ({ currentProductId }) => {
         }
         return res.json();
       })
+      
       .then((data) => {
         console.log("Similar products:", data);
         setSimilarProducts(data || []);
@@ -37,29 +39,23 @@ const SimilarProducts = ({ currentProductId }) => {
   if (!similarProducts || similarProducts.length === 0) return null;
 
   return (
-    <section className="similar-products">
-      <h2 className="similar-title">Liknande produkter</h2>
-      <div className="similar-product-container">
-        {similarProducts.map((similar) => (
-          <div key={similar.id} className="product-item">
-            <Link to={`/products/${similar.slug}`} className="prod">
-              {similar.image && (
-                <img 
-                  src={`http://localhost:5000${similar.image}`} 
-                  alt={similar.name || 'Product'} 
-                />
-              )}
-            </Link>
-            
-            <div className="product-information">
-              <p className="prod-name">{similar.name || 'Product'}</p>
-              <p className="prod-price">{similar.price || 0} SEK</p>
-            </div>
-            <p className="brand">{similar.brand || ''}</p>
-          </div>
+    <div className="similar-products">
+      <h2>Liknande produkter</h2>
+      <div className="similar-products-container">
+        {similarProducts.map((product) => (
+          <Link to={`/products/${product.slug}`} key={product.id} className="similar-product-card">
+            {product.image && (
+              <img 
+                src={`http://localhost:5000${product.image}`} 
+                alt={product.name} 
+              />
+            )}
+            <h3>{product.name}</h3>
+            <p>{product.price} kr</p>
+          </Link>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

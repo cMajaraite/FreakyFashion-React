@@ -35,29 +35,34 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details">
-      <h1>{product.name}</h1>
-      {product.image && (
-        <img 
-          src={`http://localhost:5000${product.image}`} 
-          alt={product.name} 
-          style={{ maxWidth: "100%" }} 
-        />
-      )}
-      <p>{product.description}</p>
-      <p>Pris: {product.price} kr</p>
-      <p>Varumärke: {product.brand}</p>
+      <div className="product-details-card">
+        <div className="product-image">
+          {product.image && (
+            <img 
+              src={`http://localhost:5000${product.image}`} 
+              alt={product.name}
+            />
+          )}
+        </div>
+        
+        <div className="product-info">
+          <h1>{product.name}</h1>
+          <p>{product.description}</p>
+          <p>Pris: {product.price} kr</p>
+          <p>Varumärke: {product.brand}</p>
 
-      {/* Lägg i varukorg */}
-      <button onClick={() => console.log("Lägger i varukorg:", product.name)} className="cart-button">
-        Lägg i varukorg
-      </button>
+          {/* Lägg i varukorg */}
+          <button onClick={() => console.log("Lägger i varukorg:", product.name)} className="cart-button">
+            Lägg i varukorg
+          </button>
+        </div>
+      </div>
 
-      {/* 👇 Här lägger vi in SimilarProducts 👇 */}
+      {/* Similar Products Section */}
       <SimilarProducts currentProductId={product.id} />
     </div>
   );
 };
-
 export default ProductDetails;
 
 

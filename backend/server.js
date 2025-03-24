@@ -60,7 +60,7 @@ app.get("/products/similar", (req, res) => {
     // You can customize this query based on your database structure
     // This example just gets 4 random products that aren't the current product
     const similarProducts = db
-      .prepare("SELECT * FROM products WHERE id != ? LIMIT 4")
+      .prepare("SELECT * FROM products WHERE id != ? LIMIT 3")
       .all(productId);
     
     res.json(similarProducts);
