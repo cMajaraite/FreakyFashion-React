@@ -50,24 +50,6 @@ app.get("/api/admin/products", async (req, res) => {
   }
 });
 
-// Hämta en specifik produkt
-app.get("/api/admin/products/:id", async (req, res) => {
-  try {
-    const db = await dbPromise;
-    const { id } = req.params;
-    const row = await db.get("SELECT * FROM products WHERE id = ?", id);
-
-    if (!row) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-
-    res.json(row);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
-  }
-});
-
 // Lägg till en ny produkt
 app.post("/api/admin/products", async (req, res) => {
   try {

@@ -52,11 +52,7 @@ function AdminProducts() {
             ) : (
               products.map((product) => (
                 <tr key={product.id}>
-                  <td>
-                    <Link to={`/admin/products/${product.id}`}>
-                      {product.name}
-                    </Link>
-                  </td>
+                  <td>{product.name}</td>
                   <td>{product.sku}</td>
                   <td>{product.price} SEK</td>
                 </tr>
