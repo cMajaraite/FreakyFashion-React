@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
+header {
+  background-color: black;
+  padding: 10px;
+  width: 100%;
+  border: none;
+}
+
+.header-text h1 {
+  color: white;
+  font-size: 28px;
+  margin-left: 12px;
+  border: none;
+  font-weight: bold;
+  text-align: left;
+}
+
+main {
+  height: calc(100% - 48px);
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  border: none;
+  background-color: white;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: #dddddd;
+  padding: 25px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  color: black;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  color: black;
+  border: none;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  border: none;
+}
