@@ -5,7 +5,7 @@ const ProductGrid = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("http://localhost:8000/products")
       .then((res) => res.json())
       .then((data) => {
         console.log(data); // Kontrollera datan för att säkerställa att den innehåller bild-URLs

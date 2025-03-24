@@ -14,7 +14,7 @@ const SimilarProducts = ({ currentProductId }) => {
     }
 
     setLoading(true);
-    fetch(`http://localhost:5000/products/similar?id=${currentProductId}`)
+    fetch(`http://localhost:8000/products/similar?id=${currentProductId}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch similar products");
@@ -46,7 +46,7 @@ const SimilarProducts = ({ currentProductId }) => {
           <Link to={`/products/${product.slug}`} key={product.id} className="similar-product-card">
             {product.image && (
               <img 
-                src={`http://localhost:5000${product.image}`} 
+                src={`http://localhost:8000${product.image}`} 
                 alt={product.name} 
               />
             )}

@@ -10,7 +10,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/products/${slug}`)
+    fetch(`http://localhost:8000/products/${slug}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Product not found");
@@ -46,7 +46,7 @@ const ProductDetails = () => {
         <div className="product-image">
           {product.image && (
             <img 
-              src={`http://localhost:5000${product.image}`} 
+              src={`http://localhost:8000${product.image}`} 
               alt={product.name}
             />
           )}

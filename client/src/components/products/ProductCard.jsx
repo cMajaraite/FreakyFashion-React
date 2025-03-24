@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
         <div className="product-image">
           {/* Add more defensive checks */}
           <img 
-            src={product.image ? `http://localhost:5000${product.image}` : ''} 
+            src={product.image ? `http://localhost:8000${product.image}` : ''} 
             alt={product.name || 'Product'} 
           />
           {product.isNew === 1 && <span className="new-badge">Nyhet!</span>}
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
       </a>
       <span className="full-heart">
   <img
-    src={`http://localhost:5000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
+    src={`http://localhost:8000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
     alt="Heart"
     className={product.isFavorite === 1 ? 'filled-heart' : 'empty-heart'}
   />

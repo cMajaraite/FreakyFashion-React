@@ -18,7 +18,7 @@ const SearchResults = () => {
 
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/products/search?q=${query}`);
+        const response = await fetch(`http://localhost:8000/products/search?q=${query}`);
         if (!response.ok) throw new Error("Något gick fel vid hämtningen av produkter");
         const data = await response.json();
         setProducts(data);
