@@ -10,7 +10,7 @@
 
 .hero-text h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 2em;
+    font-size: 1.1em;
     text-align: center;
     text-transform: uppercase;
 }
@@ -54,5 +54,10 @@
         flex-direction: column;
         justify-content: center;
     }
+
+    .hero-text .text-hero {
+        font-size: 18px;
+      }
+      
 }
 

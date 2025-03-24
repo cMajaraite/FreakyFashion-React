@@ -23,7 +23,10 @@ const App = () => {
               path="/"
               element={
                 <>
-                  <Hero />
+                   <Hero 
+        title="Utforska de senaste trenderna" 
+        text="Handla idag och få exklusiva erbjudanden!" 
+      />
                   <Spot />
                   <ProductGrid />
                   <FeatureList />
