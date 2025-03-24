@@ -29,6 +29,13 @@ const ProductDetails = () => {
       });
   }, [slug]);
 
+    // Uppdatera sidans titel när produktens namn finns
+    useEffect(() => {
+      if (product) {
+        document.title = product.name; // Sätt flikens titel till produktens namn
+      }
+    }, [product]); // Kör endast när produkten är laddad
+
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Ett fel uppstod: {error}</p>;
   if (!product) return <p>Ingen produkt hittades.</p>;
