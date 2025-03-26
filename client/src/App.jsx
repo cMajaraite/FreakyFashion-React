@@ -9,41 +9,72 @@ import ProductGrid from "./components/products/Productgrid";
 import FeatureList from "./components/feature/FeatureList";
 import Footer from "./components/footer/Footer";
 import SearchResults from "./components/search/SearchResults";
-import ProductDetails from "./components/products/ProductDetails"; // Importera produktdetaljer
+import ProductDetails from "./components/products/ProductDetails";
+import AdminLayout from "./layouts/AdminLayout";
+import AdminProducts from "./routes/AdminProducts/AdminProducts";
+import NewProduct from "./routes/NewProduct/NewProduct";
+import "./App.css";
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         <Head title="Freaky Fashion" />
-        <Header />
-        <main>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                   <Hero 
-        title="Utforska de senaste trenderna" 
-        text="Handla idag och få exklusiva erbjudanden!" 
-      />
+        <Routes>
+          {/* Publika sidor med Header och Footer */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <main>
+                  <Hero
+                    title="Utforska de senaste trenderna"
+                    text="Handla idag och få exklusiva erbjudanden!"
+                  />
                   <Spot />
                   <ProductGrid />
                   <FeatureList />
-                </>
-              }
-            />
-            <Route path="/search" element={<SearchResults />} />
-            <Route path="/products/:slug" element={<ProductDetails />} /> {/* Ny route */}
-          </Routes>
-        </main>
-        <Footer />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <>
+                <Header />
+                <main>
+                  <SearchResults />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/products/:slug"
+            element={
+              <>
+                <Header />
+                <main>
+                  <ProductDetails />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Admin-sidor med egen layout */}
+          <Route path="/admin/*" element={<AdminLayout />}>
+            <Route path="products" element={<AdminProducts />} />
+            <Route path="products/new" element={<NewProduct />} />
+            <Route index element={<AdminProducts />} />
+          </Route>
+        </Routes>
       </div>
     </Router>
   );
 };
 
 export default App;
-
-
-
