@@ -1,0 +1,81 @@
+.content-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: none;
+  background-color: white;
+  color: black;
+}
+
+h3 {
+  font-size: 24px;
+  border: none;
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  border: none;
+}
+
+.new-product-btn {
+  background-color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid black;
+  font-size: 14px;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-product-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.table-container {
+  width: 100%;
+  border: none;
+  background-color: white;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: black;
+}
+
+.products-table th,
+.products-table td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  color: black;
+}
+
+.products-table th {
+  background-color: #eeeeee;
+  font-weight: bold;
+  color: black;
+}
+
+.products-table tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+.products-table a {
+  color: #333;
+  text-decoration: none;
+}
+
+.products-table a:hover {
+  text-decoration: underline;
+}

@@ -1,39 +1,71 @@
 import express from "express";
 import Database from "better-sqlite3";
+import path from "path";
 import cors from "cors";
 
-// Skapa express-app
+const port = 8000;
 const app = express();
 
-// Anslut till SQLite-databasen
-const db = new Database("freakyfashion.db", { verbose: console.log });
+// CORS-konfiguration för att tillåta requests från frontend
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
-app.use(express.json()); // Möjliggör JSON-data i POST-requests
+// Gör bilder i public-mappen tillgängliga
+app.use(express.static("public"));
 
-app.use(express.static('public'));  // Gör bilder i public-mappen tillgängliga
+// Middleware för att hantera JSON-data
+app.use(express.json());
 
+// Databasinställningar - använd samma sökväg som klasskamraten för enkelhetens skull
+const dbPath = "./db/freakyfashion.db";
 
-app.use(cors({
-  origin: "http://localhost:3000", // Tillåt endast förfrågningar från denna URL
-}));
+// Initiera databasen
+function setupDb() {
+  const db = new Database(dbPath, { verbose: console.log });
 
-const PORT = 8000; // Backend körs på en annan port än frontend
+  // Skapa tabellen om den inte finns
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS products (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      description TEXT,
+      sku TEXT NOT NULL,
+      price REAL NOT NULL,
+      brand TEXT,
+      image TEXT,
+      slug TEXT
+    )
+  `);
+
+  return db;
+}
+
+// Initiera databasen
+const db = setupDb();
 
 // Test-route för att se om servern fungerar
 app.get("/", (req, res) => {
   res.send("Backend fungerar! 🚀");
 });
 
-// Route för att hämta produkter
+// ===== FRONTEND API ROUTES =====
+
+// Hämta alla produkter (för frontend ProductGrid)
 app.get("/products", (req, res) => {
   try {
     const products = db.prepare("SELECT * FROM products").all();
     res.json(products);
   } catch (error) {
+    console.error("Fel vid hämtning av produkter:", error);
     res.status(500).json({ error: "Något gick fel med databasen" });
   }
 });
 
+// Sök efter produkter (för frontend sökning)
 app.get("/products/search", (req, res) => {
   const query = req.query.q?.toLowerCase();
   if (!query) {
@@ -41,9 +73,9 @@ app.get("/products/search", (req, res) => {
   }
 
   try {
-    console.log("Sökterm:", query); // Logga söktermen
+    console.log("Sökterm:", query);
     const sql = `SELECT * FROM products WHERE LOWER(name) LIKE ?`;
-    const products = db.prepare(sql).all(`%${query}%`); // Synkron SQLite-sökning
+    const products = db.prepare(sql).all(`%${query}%`);
     res.json(products);
   } catch (error) {
     console.error("DB Error:", error);
@@ -51,35 +83,37 @@ app.get("/products/search", (req, res) => {
   }
 });
 
-// This route should come BEFORE the :slug route
+// Hämta liknande produkter (för SimilarProducts-komponenten)
 app.get("/products/similar", (req, res) => {
   const productId = req.query.id;
-  
+
   if (!productId) {
     return res.status(400).json({ error: "Missing product ID" });
   }
-  
+
   try {
-    // You can customize this query based on your database structure
-    // This example just gets 4 random products that aren't the current product
     const similarProducts = db
       .prepare("SELECT * FROM products WHERE id != ? LIMIT 3")
       .all(productId);
-    
+
     res.json(similarProducts);
   } catch (error) {
     console.error("Error fetching similar products:", error);
-    res.status(500).json({ error: "Something went wrong fetching similar products" });
+    res
+      .status(500)
+      .json({ error: "Something went wrong fetching similar products" });
   }
 });
 
-// The dynamic parameter route should come AFTER the specific route
+// Hämta produkt via slug (för ProductDetails)
 app.get("/products/:slug", (req, res) => {
   const { slug } = req.params;
   try {
-    console.log("Hämtar produkt med slug:", slug); // Testa om slug tas emot
+    console.log("Hämtar produkt med slug:", slug);
 
-    const product = db.prepare("SELECT * FROM products WHERE slug = ?").get(slug);
+    const product = db
+      .prepare("SELECT * FROM products WHERE slug = ?")
+      .get(slug);
 
     if (!product) {
       return res.status(404).json({ error: "Produkten hittades inte" });
@@ -92,7 +126,66 @@ app.get("/products/:slug", (req, res) => {
   }
 });
 
+// ===== ADMIN API ROUTES =====
+
+// Hämta alla produkter för admin
+app.get("/api/admin/products", (req, res) => {
+  try {
+    const rows = db.prepare("SELECT * FROM products").all();
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Lägg till en ny produkt (admin)
+app.post("/api/admin/products", (req, res) => {
+  try {
+    const { name, description, sku, price, brand, image } = req.body;
+
+    console.log("Mottagen data:", req.body);
+
+    if (!name || !sku || !price) {
+      console.error("Fel: Saknar nödvändiga fält");
+      return res.status(400).json({ error: "Alla fält måste vara ifyllda" });
+    }
+
+    // Generera slug
+    const slug = name
+      .toLowerCase()
+      .replace(/å/g, "a")
+      .replace(/ä/g, "a")
+      .replace(/ö/g, "o")
+      .replace(/[\s\W-]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+    // Använd better-sqlite3 för att infoga data
+    const stmt = db.prepare(`
+      INSERT INTO products (name, description, sku, price, brand, image, slug) 
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const info = stmt.run(name, description, sku, price, brand, image, slug);
+
+    console.log("Produkt sparad, skickar JSON-svar...");
+    res.status(201).json({
+      id: info.lastInsertRowid,
+      name,
+      description,
+      sku,
+      price,
+      brand,
+      image,
+      slug,
+    });
+  } catch (err) {
+    console.error("Databasfel:", err);
+    return res.status(500).json({ error: "Kunde inte spara produkten" });
+  }
+});
+
 // Starta servern
-app.listen(PORT, () => {
-  console.log(`Servern körs på http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server körs på http://localhost:${port}`);
 });
