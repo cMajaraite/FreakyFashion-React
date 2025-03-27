@@ -2,9 +2,14 @@ import express from "express";
 import Database from "better-sqlite3";
 import path from "path";
 import cors from "cors";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const port = 8000;
 const app = express();
+
 
 // CORS-konfiguration för att tillåta requests från frontend
 app.use(
