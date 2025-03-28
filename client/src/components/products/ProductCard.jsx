@@ -10,26 +10,33 @@ const ProductCard = ({ product }) => {
       <a href={`/products/${product.slug}`}>
         <div className="product-image">
           {/* Add more defensive checks */}
-          <img 
-            src={product.image ? `http://localhost:8000${product.image}` : ''} 
-            alt={product.name || 'Product'} 
+          <img
+            src={
+              product.image
+                ? product.image.startsWith("http")
+                  ? product.image
+                  : `http://localhost:8000${product.image}`
+                : ""
+            }
+            alt={product.name || "Product"}
           />
           {product.isNew === 1 && <span className="new-badge">Nyhet!</span>}
         </div>
         <div className="product-name">
-          <span>{product.name || 'Product'}</span>
+          <span>{product.name || "Product"}</span>
           <span>{product.price || 0} SEK</span>
         </div>
-        <div className="product-brand">{product.brand || ''}</div>
+        <div className="product-brand">{product.brand || ""}</div>
       </a>
       <span className="full-heart">
-  <img
-    src={`http://localhost:8000/svg/${product.isFavorite === 1 ? 'filled-heart.svg' : 'hjärta.svg'}`}
-    alt="Heart"
-    className={product.isFavorite === 1 ? 'filled-heart' : 'empty-heart'}
-  />
-</span>
-
+        <img
+          src={`http://localhost:8000/svg/${
+            product.isFavorite === 1 ? "filled-heart.svg" : "hjärta.svg"
+          }`}
+          alt="Heart"
+          className={product.isFavorite === 1 ? "filled-heart" : "empty-heart"}
+        />
+      </span>
     </div>
   );
 };

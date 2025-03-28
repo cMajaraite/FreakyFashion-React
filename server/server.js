@@ -20,7 +20,6 @@ app.use(express.static("public"));
 // Middleware för att hantera JSON-data
 app.use(express.json());
 
-// Databasinställningar - använd samma sökväg som klasskamraten för enkelhetens skull
 const dbPath = "./db/freakyfashion.db";
 
 // Initiera databasen
