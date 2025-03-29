@@ -67,6 +67,7 @@ const App = () => {
           />
 
           {/* Admin-sidor*/}
+
           <Route path="/admin/*" element={<AdminLayout />}>
             <Route path="products" element={<AdminProducts />} />
             <Route path="products/new" element={<NewProduct />} />

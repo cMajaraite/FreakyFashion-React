@@ -45,7 +45,13 @@ const ProductDetails = () => {
         <div className="product-image">
           {product.image && (
             <img
-              src={`http://localhost:8000${product.image}`}
+              src={
+                product.image
+                  ? product.image.startsWith("http")
+                    ? product.image
+                    : `http://localhost:8000${product.image}`
+                  : ""
+              }
               alt={product.name}
             />
           )}

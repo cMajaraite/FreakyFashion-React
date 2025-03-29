@@ -44,6 +44,7 @@ function NewProduct() {
     });
   };
 
+  document.title = "Administration";
   return (
     <>
       <div className="content">
