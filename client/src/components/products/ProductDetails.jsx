@@ -29,12 +29,12 @@ const ProductDetails = () => {
       });
   }, [slug]);
 
-    // Uppdatera sidans titel när produktens namn finns
-    useEffect(() => {
-      if (product) {
-        document.title = product.name; // Sätt flikens titel till produktens namn
-      }
-    }, [product]); // Kör endast när produkten är laddad
+  // Uppdatera sidans titel när produktens namn finns
+  useEffect(() => {
+    if (product) {
+      document.title = product.name; // Sätt flikens titel till produktens namn
+    }
+  }, [product]); // Kör endast när produkten är laddad
 
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Ett fel uppstod: {error}</p>;
@@ -45,13 +45,13 @@ const ProductDetails = () => {
       <div className="product-details-card">
         <div className="product-image">
           {product.image && (
-            <img 
-              src={`http://localhost:8000${product.image}`} 
+            <img
+              src={`http://localhost:8000${product.image}`}
               alt={product.name}
             />
           )}
         </div>
-        
+
         <div className="product-info">
           <h1>{product.name}</h1>
           <p>{product.description}</p>
@@ -59,7 +59,10 @@ const ProductDetails = () => {
           <p>Varumärke: {product.brand}</p>
 
           {/* Lägg i varukorg */}
-          <button onClick={() => console.log("Lägger i varukorg:", product.name)} className="cart-button">
+          <button
+            onClick={() => console.log("Lägger i varukorg:", product.name)}
+            className="cart-button"
+          >
             Lägg i varukorg
           </button>
         </div>
@@ -71,5 +74,3 @@ const ProductDetails = () => {
   );
 };
 export default ProductDetails;
-
-

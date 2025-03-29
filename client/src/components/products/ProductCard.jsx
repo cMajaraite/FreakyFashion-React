@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../assets/Product.css";
 
 const ProductCard = ({ product }) => {
@@ -7,7 +8,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product">
-      <a href={`/products/${product.slug}`}>
+      <Link to={`/products/${product.slug}`}>
         <div className="product-image">
           {/* Add more defensive checks */}
           <img
@@ -27,7 +28,7 @@ const ProductCard = ({ product }) => {
           <span>{product.price || 0} SEK</span>
         </div>
         <div className="product-brand">{product.brand || ""}</div>
-      </a>
+      </Link>
       <span className="full-heart">
         <img
           src={`http://localhost:8000/svg/${

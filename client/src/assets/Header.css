@@ -17,26 +17,28 @@
     }
 
     .search-img {
-        width: 1.2em;
-        margin-left: 3px;
+        width: 1em;
+        margin-left: 10px;
+        position: relative;
+        top: 28px; /* Flyttar ner ikonen */
     }
 
      .search {
         display: flex;
         flex-grow: 1;
         margin-right: 10px;
-        outline: 1px solid black;
-        border-radius: 20px;
     }
 
     .search-input {
-        font-size: 1.2em;
+        font-size: 1em;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #8d8d8d;
-        border: none;
-        outline: none;
+        border: 1px solid black;
         background: transparent;
+        border-radius: 25px;
+        text-indent: 25px; /* Justera värdet efter behov */
     }
+    
 
     .icons {
         display: flex;
@@ -112,11 +114,13 @@
 
      @media (min-width: 1024px) {
         .search-img {
-            width: 1.5em;
+            width: 1.2em;
+            position: relative;
+            top: 30px; /* Flyttar ner ikonen */
         }
 
         .search-input {
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
     
         .nav {

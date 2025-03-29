@@ -21,7 +21,7 @@ const SimilarProducts = ({ currentProductId }) => {
         }
         return res.json();
       })
-      
+
       .then((data) => {
         console.log("Similar products:", data);
         setSimilarProducts(data || []);
@@ -43,11 +43,15 @@ const SimilarProducts = ({ currentProductId }) => {
       <h2>Liknande produkter</h2>
       <div className="similar-products-container">
         {similarProducts.map((product) => (
-          <Link to={`/products/${product.slug}`} key={product.id} className="similar-product-card">
+          <Link
+            to={`/products/${product.slug}`}
+            key={product.id}
+            className="similar-product-card"
+          >
             {product.image && (
-              <img 
-                src={`http://localhost:8000${product.image}`} 
-                alt={product.name} 
+              <img
+                src={`http://localhost:8000${product.image}`}
+                alt={product.name}
               />
             )}
             <h3>{product.name}</h3>
