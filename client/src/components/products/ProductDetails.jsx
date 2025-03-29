@@ -29,10 +29,9 @@ const ProductDetails = () => {
       });
   }, [slug]);
 
-  // Uppdatera sidans titel när produktens namn finns
   useEffect(() => {
     if (product) {
-      document.title = product.name; // Sätt flikens titel till produktens namn
+      document.title = product.name;
     }
   }, [product]); // Kör endast när produkten är laddad
 
@@ -54,9 +53,9 @@ const ProductDetails = () => {
 
         <div className="product-info">
           <h1>{product.name}</h1>
+          <p>{product.brand}</p>
           <p>{product.description}</p>
-          <p>Pris: {product.price} kr</p>
-          <p>Varumärke: {product.brand}</p>
+          <p>{product.price} SEK</p>
 
           {/* Lägg i varukorg */}
           <button

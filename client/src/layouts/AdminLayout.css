@@ -14,7 +14,6 @@ body,
   color: black;
 }
 
-/* Ändrad från header till .admin-header */
 .admin-header {
   background-color: black;
   padding: 10px;
@@ -31,7 +30,6 @@ body,
   text-align: left;
 }
 
-/* Ändrad från main till .admin-main */
 .admin-main {
   height: calc(100% - 48px);
   display: flex;

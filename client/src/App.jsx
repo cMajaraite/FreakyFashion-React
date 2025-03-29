@@ -21,7 +21,6 @@ const App = () => {
       <div className="App">
         <Head title="Freaky Fashion" />
         <Routes>
-          {/* Publika sidor med Header och Footer */}
           <Route
             path="/"
             element={
@@ -47,6 +46,7 @@ const App = () => {
                 <Header />
                 <main>
                   <SearchResults />
+                  <FeatureList />
                 </main>
                 <Footer />
               </>
@@ -59,13 +59,14 @@ const App = () => {
                 <Header />
                 <main>
                   <ProductDetails />
+                  <FeatureList />
                 </main>
                 <Footer />
               </>
             }
           />
 
-          {/* Admin-sidor med egen layout */}
+          {/* Admin-sidor*/}
           <Route path="/admin/*" element={<AdminLayout />}>
             <Route path="products" element={<AdminProducts />} />
             <Route path="products/new" element={<NewProduct />} />

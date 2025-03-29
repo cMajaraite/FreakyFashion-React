@@ -10,7 +10,6 @@ const ProductCard = ({ product }) => {
     <div className="product">
       <Link to={`/products/${product.slug}`}>
         <div className="product-image">
-          {/* Add more defensive checks */}
           <img
             src={
               product.image
