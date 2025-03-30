@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Head from "./components/head/Head";
 import Header from "./components/header/Header";
 import "./assets/global.css";
@@ -15,9 +14,9 @@ import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
 import "./App.css";
 
-const App = () => {
+function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         <Head title="Freaky Fashion" />
         <Routes>
@@ -75,8 +74,8 @@ const App = () => {
           </Route>
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
