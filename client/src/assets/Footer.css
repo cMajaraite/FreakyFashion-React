@@ -55,7 +55,7 @@
     .footer {
         background-color: #dadada;
         border: 1px solid black;
-        height: 270px;
+        height: 250px;
         padding: 10px;
         margin-bottom: 2%;
     }
@@ -73,6 +73,7 @@
     .footer-section h3 {
         font-size: 16px;
         margin-left: 5px;
+        margin-top: 10px;
     }
     
     .footer-section ul {

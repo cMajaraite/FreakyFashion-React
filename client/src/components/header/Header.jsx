@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import "../../assets/Header.css"; 
+import { useNavigate, Link } from "react-router-dom";
+import "../../assets/Header.css";
 import logo from "../../assets/images/FreakyFashionLogo.png";
 import searchIcon from "../../assets/svg/search.svg";
 import favoritesIcon from "../../assets/svg/favorites.svg";
@@ -22,9 +22,9 @@ const Header = () => {
       <div className="header">
         <div className="logo-search">
           <div>
-            <a href="/">
+            <Link to="/">
               <img id="logo" src={logo} alt="Logo" />
-            </a>
+            </Link>
           </div>
 
           <div className="search-icons">
@@ -41,14 +41,14 @@ const Header = () => {
 
             <div className="icons">
               <div className="favorite">
-                <a href="#">
+                <Link to="/favorites">
                   <img src={favoritesIcon} alt="favoriter" />
-                </a>
+                </Link>
               </div>
               <div className="basket">
-                <a href="#" className="varukorg-icon">
+                <Link to="/cart" className="varukorg-icon">
                   <img src={basketIcon} alt="varukorg" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -58,11 +58,21 @@ const Header = () => {
       <div className="nav">
         <nav>
           <ul>
-            <li><a href="#">Nyheter</a></li>
-            <li className="kategori"><a href="#">Kategorier</a></li>
-            <li><a href="#">Topplistan</a></li>
-            <li><a href="#">Rea</a></li>
-            <li><a href="#">Kampanjer</a></li>
+            <li>
+              <Link to="/nyheter">Nyheter</Link>
+            </li>
+            <li className="kategori">
+              <Link to="/kategorier">Kategorier</Link>
+            </li>
+            <li>
+              <Link to="/topplistan">Topplistan</Link>
+            </li>
+            <li>
+              <Link to="/rea">Rea</Link>
+            </li>
+            <li>
+              <Link to="/kampanjer">Kampanjer</Link>
+            </li>
           </ul>
         </nav>
       </div>
@@ -71,4 +81,3 @@ const Header = () => {
 };
 
 export default Header;
-

@@ -3,14 +3,14 @@ import "./AdminLayout.css";
 
 function AdminLayout() {
   return (
-    <>
-      <header>
+    <div className="admin-container">
+      <div className="admin-header">
         <div className="header-text">
           <h1>Administration</h1>
         </div>
-      </header>
+      </div>
 
-      <main>
+      <div className="admin-main">
         <div className="container">
           <aside className="sidebar">
             <h2>Produkter</h2>
@@ -20,8 +20,8 @@ function AdminLayout() {
             <Outlet />
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 }
 

@@ -15,12 +15,11 @@ app.use(
 );
 
 // Gör bilder i public-mappen tillgängliga
-app.use("/images", express.static(path.join(__dirname, "public/images")));
+app.use(express.static("public"));
 
 // Middleware för att hantera JSON-data
 app.use(express.json());
 
-// Databasinställningar - använd samma sökväg som klasskamraten för enkelhetens skull
 const dbPath = "./db/freakyfashion.db";
 
 // Initiera databasen
