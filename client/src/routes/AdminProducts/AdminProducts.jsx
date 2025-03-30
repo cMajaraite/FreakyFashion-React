@@ -20,6 +20,8 @@ function AdminProducts() {
       });
   }, []);
 
+  document.title = "Administration";
+
   return (
     <>
       <div className="content-header">

@@ -1,129 +1,140 @@
 /* Styling för produktdetaljsidan */
 .product-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Bildinställningar */
+.product-details img {
+  display: block;
+  width: 100%;
+  max-width: 600px; /* Limit maximum image width */
+  height: auto;
+  margin: 0 0 30px 0; /* Add more bottom margin to separate from text */
+  order: 1; /* Ensure image is first */
+}
+
+/* Rubrik */
+.product-details h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 20px;
+  order: 2; /* h1 comes after the image */
+}
+
+/* Textinnehåll */
+.product-details p {
+  font-size: 1.1rem;
+  line-height: 1, 5;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+  order: 3; /* Paragraphs come after h1 */
+}
+
+.product-info p:nth-child(2) {
+  color: grey;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.product-info p:nth-child(4) {
+  font-size: 1.2rem; /* Storlek för priset, som är det fjärde p-elementet */
+  margin-top: 20px;
+}
+
+/* Styling för knappen */
+.product-details .cart-button {
+  display: block;
+  width: 100%;
+  max-width: 600px; /* Match image width for better alignment */
+  padding: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 30px;
+  order: 4; /* Button comes last */
+  margin-top: 15px;
+}
+
+.product-details .cart-button:hover {
+  background-color: rgb(222, 218, 218);
+}
+
+/* För att säkerställa att SimilarProducts inte visas här */
+.similar-products {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .product-details {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+  }
+
+  /* Product details card with image and text */
+  .product-details-card {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center items horizontally */
+    margin-bottom: 40px;
+    gap: 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
   }
-  
-  /* Bildinställningar */
-  .product-details img {
-    display: block;
+
+  /* Product image container */
+  .product-image {
+    flex: 0 0 40%; /* Image takes 40% of the width */
+  }
+
+  .product-image img {
     width: 100%;
-    max-width: 600px; /* Limit maximum image width */
     height: auto;
-    margin: 0 0 30px 0; /* Add more bottom margin to separate from text */
-    order: 1; /* Ensure image is first */
-  }
-  
-  /* Rubrik */
-  .product-details h1 {
-    font-size: 2rem;
-    text-align: left;
-    width: 100%;
-    margin-top: 0; /* Remove top margin */
-    margin-bottom: 20px;
-    order: 2; /* h1 comes after the image */
-  }
-  
-  /* Textinnehåll */
-  .product-details p {
-    font-size: 1.1rem;
-    line-height: 1,5;
-    margin-bottom: 5px;
-    text-align: left;
-    width: 100%;
-    order: 3; /* Paragraphs come after h1 */
-  }
-  
-  /* Styling för knappen */
-  .product-details .cart-button {
     display: block;
-    width: 100%;
-    max-width: 600px; /* Match image width for better alignment */
-    padding: 15px;
-    font-size: 1.2rem;
-    text-align: center;
-    background-color: white;
-    border: 2px solid black;
     border-radius: 4px;
-    color: black;
-    cursor: pointer;
-    margin-bottom: 30px;
-    order: 4; /* Button comes last */
-    margin-top: 15px;
   }
-  
-  .product-details .cart-button:hover {
-    background-color: rgb(222, 218, 218);
-  }
-  
-  /* För att säkerställa att SimilarProducts inte visas här */
-  .similar-products {
-    display: none;
-  }
-  
-  @media (min-width: 640px) {
-    .product-details {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-      }
-      
-      /* Product details card with image and text */
-      .product-details-card {
-        display: flex;
-        margin-bottom: 40px;
-        gap: 30px;
-        background-color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 8px;
-      }
-      
-      /* Product image container */
-      .product-image {
-        flex: 0 0 40%; /* Image takes 40% of the width */
-      }
-      
-      .product-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 4px;
-      }
-      
-      /* Product info container */
-      .product-info {
-        flex: 0 0 60%; /* Info takes 60% of the width */
-        display: flex;
-        flex-direction: column;
-      }
-      
-      /* Product title */
-      .product-info h1 {
-        font-size: 2rem;
-        margin-top: 15px;
-        margin-bottom: 16px;
-        color: #333;
-      }
-      
-/* Product info container */
-.product-info {
+
+  /* Product info container */
+  .product-info {
     flex: 0 0 60%; /* Info takes 60% of the width */
     display: flex;
     flex-direction: column;
-    position: relative; /* Add this to help with positioning */
-    padding: 0 15px; /* Add some padding */
-    box-sizing: border-box; /* Include padding in width calculation */
-    width: 100%; /* Ensure full width is used */
+  }
+
+  /* Product title */
+  .product-info h1 {
+    font-size: 2rem;
+    margin-top: 15px;
+    margin-bottom: 16px;
+    color: #333;
+  }
+
+  /* Product info container */
+  .product-info {
+    flex: 0 0 60%; /* Info takes 60% of the width */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
     overflow: hidden; /* Prevent content from exceeding container */
   }
-  
+
   /* Add to cart button */
   .product-details .cart-button {
     padding: 12px 20px;
@@ -134,88 +145,101 @@
     margin-bottom: 10px;
     width: auto; /* Let the width be determined by content */
     max-width: 60%; /* Prevent from being too wide */
-    display: inline-block; /* Try this instead of flex alignment */
-    position: relative; /* Ensure proper positioning */
-    left: 0; /* Force alignment to left */
+    display: inline-block;
+    position: relative;
+    left: 0;
   }
-      
-      
-      /* Similar products section */
-      .similar-products {
-        margin-top: 20px;
-        display: block; /* Override any previous display:none */
-      }
-      
-      .similar-products h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-        color: #333;
-        text-align: center;
-      }
-      
-      /* Container for similar product cards */
-      .similar-products-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Three equal columns */
-        gap: 20px;
-      }
-      
-      /* Individual similar product card */
-      .similar-product-card {
-        background-color: #fff;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        padding: 15px;
-        transition: transform 0.2s;
-        text-decoration: none;
-      }
-      
-      .similar-product-card:hover {
-        transform: translateY(-5px);
-      }
-      
-      .similar-product-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin-bottom: 10px;
-      }
-      
-      .similar-product-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-        color: #333;
-      }
-      
-      .similar-product-card p {
-        color: #333;
-        font-weight: bold;
-      }
-  }
-  
-  @media (min-width: 1024px) {
-    .product-details img {
-      display: block;
-      width: 100%;
-      max-width: 855px; /* Limit maximum image width */
-      height: auto;
-      margin: 0 0 30px 0; /* Add more bottom margin to separate from text */
-      order: 1; /* Ensure image is first */
-    }
 
-    .product-details h1 {
-      font-size: 2rem;
-      text-align: left;
-      width: 100%;
-      margin-top: 25px; /* Remove top margin */
-      margin-bottom: 20px;
-      order: 2; /* h1 comes after the image */
-    }
-  
-      /* Add to cart button */
+  /* Similar products section */
+  .similar-products {
+    display: block;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 15px;
+  }
+
+  .similar-products h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+
+  .similar-products a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Container for similar product cards */
+  .similar-products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px;
+  }
+
+  /* Individual similar product card */
+  .similar-product-card {
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.2s;
+    text-decoration: none;
+  }
+
+  .similar-product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .similar-product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: -18px;
+  }
+
+  .similar-product-name {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 8px 0;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .similar-product-brand {
+    font-size: 10px;
+    color: rgb(71, 71, 71);
+    margin-top: 2%;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-details img {
+    display: block;
+    width: 100%;
+    max-width: 855px; /* Limit maximum image width */
+    height: auto;
+    margin: 0 0 30px 0;
+    order: 1; /* Ensure image is first */
+  }
+
+  .product-details h1 {
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    order: 2; /* h1 comes after the image */
+  }
+
+  /* Add to cart button */
   .product-details .cart-button {
     margin-top: 65px;
     max-width: 60%;
   }
-
-  }
+}

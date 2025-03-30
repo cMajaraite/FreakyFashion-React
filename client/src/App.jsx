@@ -18,14 +18,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {/* Publika sidor */}
+        <Head title="Freaky Fashion" />
         <Routes>
-          {/* Hem och produktsidor */}
           <Route
             path="/"
             element={
               <>
-                <Head title="Freaky Fashion" />
                 <Header />
                 <main>
                   <Hero
@@ -44,10 +42,10 @@ function App() {
             path="/search"
             element={
               <>
-                <Head title="Sök - Freaky Fashion" />
                 <Header />
                 <main>
                   <SearchResults />
+                  <FeatureList />
                 </main>
                 <Footer />
               </>
@@ -57,18 +55,19 @@ function App() {
             path="/products/:slug"
             element={
               <>
-                <Head title="Produktdetaljer - Freaky Fashion" />
                 <Header />
                 <main>
                   <ProductDetails />
+                  <FeatureList />
                 </main>
                 <Footer />
               </>
             }
           />
 
-          {/* Admin-sidor */}
-          <Route path="/admin" element={<AdminLayout />}>
+          {/* Admin-sidor*/}
+
+          <Route path="/admin/*" element={<AdminLayout />}>
             <Route path="products" element={<AdminProducts />} />
             <Route path="products/new" element={<NewProduct />} />
             <Route index element={<AdminProducts />} />
