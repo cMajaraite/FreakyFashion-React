@@ -5,7 +5,7 @@ import "./NewProduct.css";
 
 function NewProduct() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ 
     name: "",
     description: "",
     sku: "",
@@ -17,12 +17,12 @@ function NewProduct() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("/api/admin/products", {
+    fetch("/api/admin/products", { // Skickar förfrågan till urlen
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      }, 
+      body: JSON.stringify(formData), 
     })
       .then((resp) => {
         if (resp.ok) {
@@ -36,11 +36,11 @@ function NewProduct() {
       });
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
+  const handleInputChange = (event) => { 
+    const { name, value } = event.target; 
+    setFormData({ // Uppdaterar formData
+      ...formData, 
+      [name]: value, 
     });
   };
 
@@ -51,7 +51,7 @@ function NewProduct() {
         <h3>Ny produkt</h3>
 
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Namn:</label>
+          <label htmlFor="name">Namn:</label> 
           <input
             type="text"
             id="name"
