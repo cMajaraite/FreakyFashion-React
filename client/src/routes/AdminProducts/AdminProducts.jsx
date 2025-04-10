@@ -9,7 +9,6 @@ function AdminProducts() {
 
   
   useEffect(() => {
-    
     fetch("/api/admin/products")
       .then((resp) => resp.json()) 
       .then((data) => {

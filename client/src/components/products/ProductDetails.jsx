@@ -76,7 +76,7 @@ useEffect(() => {
       </div>
 
       {/* Similar Products Section, barn*/}
-      <SimilarProducts currentProductId={product.id} /> {/*Renderar similarproducts kompon och skickar med en prop som heter currentProductId*/}
+      <SimilarProducts currentProductId={product.id} /> 
     </div>
   );
 };
