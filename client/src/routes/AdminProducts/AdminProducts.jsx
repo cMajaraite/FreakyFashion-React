@@ -16,7 +16,6 @@ function AdminProducts() {
         setIsLoading(false);       
       })
       .catch((error) => {
-        
         console.error("Kunde inte hämta produkter:", error);
         setIsLoading(false);
       });
@@ -26,7 +25,6 @@ function AdminProducts() {
   
   return (
     <>
-      
       <div className="content-header">
         <h3 className="flex-item">Produkter</h3>
         <div className="button-container">
