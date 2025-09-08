@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CategoryPage from "./components/category/CategoryPage";
 import Head from "./components/head/Head";
 import Header from "./components/header/Header";
 import "./assets/global.css";
@@ -13,6 +14,7 @@ import AdminLayout from "./layouts/AdminLayout";
 import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
 import "./App.css";
+
 
 function App() {
   return (
@@ -32,6 +34,19 @@ function App() {
                   />
                   <Spot />
                   <ProductGrid />
+                  <FeatureList />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/kategori/:category"
+            element={
+              <>
+                <Header />
+                <main>
+                  <CategoryPage />
                   <FeatureList />
                 </main>
                 <Footer />

@@ -38,7 +38,7 @@ function NewProduct() {
 
   const handleInputChange = (event) => { 
     const { name, value } = event.target; 
-    setFormData({ // Uppdaterar formData
+    setFormData({ 
       ...formData, 
       [name]: value, 
     });
