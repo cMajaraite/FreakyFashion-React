@@ -6,7 +6,7 @@ import "./assets/global.css";
 import Hero from "./components/section/hero/Hero";
 import Spot from "./components/section/spot/Spot";
 import ProductGrid from "./components/products/Productgrid";
-import FeatureList from "./components/feature/FeatureList";
+import FeatureList from "./components/layout/feature/FeatureList";
 import SearchResults from "./components/search/SearchResults";
 import ProductDetails from "./components/products/ProductDetails";
 import AdminLayout from "./layouts/AdminLayout";
