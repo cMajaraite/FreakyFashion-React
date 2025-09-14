@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CategoryPage from "./components/category/CategoryPage";
 import Head from "./components/head/Head";
-import Header from "./components/category/layout/header/Header";
+import Layout from "./components/layout/Layout";
 import "./assets/global.css";
-import Hero from "./components/hero/Hero";
-import Spot from "./components/spot/Spot";
+import Hero from "./components/section/hero/Hero";
+import Spot from "./components/section/spot/Spot";
 import ProductGrid from "./components/products/Productgrid";
 import FeatureList from "./components/feature/FeatureList";
-import Footer from "./components/category/layout/footer/Footer";
 import SearchResults from "./components/search/SearchResults";
 import ProductDetails from "./components/products/ProductDetails";
 import AdminLayout from "./layouts/AdminLayout";
