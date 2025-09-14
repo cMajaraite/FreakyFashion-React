@@ -13,6 +13,8 @@ import AdminLayout from "./layouts/AdminLayout";
 import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
 import "./App.css";
+import AdminCategories from "./routes/AdminCategories/AdminCategories";
+import NewCategory from "./routes/NewCategory/NewCategory";
 
 function App() {
   return (
@@ -71,6 +73,8 @@ function App() {
             <Route path="products" element={<AdminProducts />} />
             <Route path="products/new" element={<NewProduct />} />
             <Route index element={<AdminProducts />} />
+            <Route path="categories" element={<AdminCategories />} />
+            <Route path="categories/new" element={<NewCategory />} />
           </Route>
         </Routes>
       </div>

@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import "./AdminLayout.css";
 
 function AdminLayout() {
@@ -13,7 +13,24 @@ function AdminLayout() {
       <div className="admin-main">
         <div className="container">
           <aside className="sidebar">
-            <h2>Produkter</h2>
+            <nav className="sidebar-nav">
+              <NavLink
+                to="/admin/products"
+                className={({ isActive }) =>
+                  isActive ? "nav-item active" : "nav-item"
+                }
+              >
+                Produkter
+              </NavLink>
+              <NavLink
+                to="/admin/categories"
+                className={({ isActive }) =>
+                  isActive ? "nav-item active" : "nav-item"
+                }
+              >
+                Kategorier
+              </NavLink>
+            </nav>
           </aside>
 
           <div className="content-container">
