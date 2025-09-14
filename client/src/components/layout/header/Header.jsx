@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+
 import "../../assets/Header.css";
 import logo from "../../assets/images/FreakyFashionLogo.png";
 import searchIcon from "../../assets/svg/search.svg";
 import favoritesIcon from "../../assets/svg/favorites.svg";
 import basketIcon from "../../assets/svg/varukorg.svg";
+
+
 
 const Header = () => {
   const [query, setQuery] = useState("");

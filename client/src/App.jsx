@@ -1,95 +1,51 @@
+// src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CategoryPage from "./components/category/CategoryPage";
 import Head from "./components/head/Head";
 import Layout from "./components/layout/Layout";
-import "./assets/global.css";
-import Hero from "./components/section/hero/Hero";
-import Spot from "./components/section/spot/Spot";
-import ProductGrid from "./components/products/Productgrid";
-import FeatureList from "./components/layout/feature/FeatureList";
-import SearchResults from "./components/search/SearchResults";
-import ProductDetails from "./components/products/ProductDetails";
+
+// Pages
+import HomePage from "./components/pages/HomePage";
+import CategoryPage from "./components/pages/CategoryPage";
+import ProductPage from "./components/pages/ProductPage";
+import SearchPage from "./components/pages/SearchPage";
+
+// Admin
 import AdminLayout from "./layouts/AdminLayout";
 import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
-import "./App.css";
 
+// Global CSS
+import "./assets/global.css";
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Head title="Freaky Fashion" />
+      <Head title="Freaky Fashion" />
+
+      {/* Vanliga användarsidor */}
+      <Layout>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <main>
-                  <Hero
-                    title="Utforska de senaste trenderna"
-                    text="Handla idag och få exklusiva erbjudanden!"
-                  />
-                  <Spot />
-                  <ProductGrid />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/kategori/:category"
-            element={
-              <>
-                <Header />
-                <main>
-                  <CategoryPage />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/search"
-            element={
-              <>
-                <Header />
-                <main>
-                  <SearchResults />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/products/:slug"
-            element={
-              <>
-                <Header />
-                <main>
-                  <ProductDetails />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-
-          {/* Admin-sidor*/}
-
-          <Route path="/admin/*" element={<AdminLayout />}>
-            <Route path="products" element={<AdminProducts />} />
-            <Route path="products/new" element={<NewProduct />} />
-            <Route index element={<AdminProducts />} />
-          </Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/kategori/:category" element={<CategoryPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/products/:slug" element={<ProductPage />} />
         </Routes>
-      </div>
+      </Layout>
+
+      {/* Admin-sidor */}
+      <Routes>
+        <Route path="/admin/*" element={<AdminLayout />}>
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="products/new" element={<NewProduct />} />
+          <Route index element={<AdminProducts />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+
+

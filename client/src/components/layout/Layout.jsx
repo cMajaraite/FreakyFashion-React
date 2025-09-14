@@ -1,6 +1,5 @@
-// src/components/layout/Layout.jsx
-import Header from "./Header";
-import Footer from "./Footer/Footer";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
 import FeatureList from "../feature/FeatureList";
 
 export default function Layout({ children }) {
