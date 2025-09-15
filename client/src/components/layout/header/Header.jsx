@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../../assets/Header.css";
-import logo from "../../assets/images/FreakyFashionLogo.png";
-import searchIcon from "../../assets/svg/search.svg";
-import favoritesIcon from "../../assets/svg/favorites.svg";
-import basketIcon from "../../assets/svg/varukorg.svg";
+
+import "/src/assets/Header.css";
+import logo from "/src/assets/images/FreakyFashionLogo.png";
+import searchIcon from "/src/assets/svg/search.svg";
+import basketIcon from "/src/assets/svg/varukorg.svg";
+import favoritesIcon from "/src/assets/svg/favorites.svg";
+
+
 
 const Header = () => {
   const [query, setQuery] = useState("");

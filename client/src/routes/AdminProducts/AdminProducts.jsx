@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./AdminProducts.css";
@@ -6,22 +7,22 @@ function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  
   useEffect(() => {
-    // Load products automatically when component mounts
     fetch("/api/admin/products")
-      .then((resp) => resp.json())
+      .then((resp) => resp.json()) 
       .then((data) => {
-        setProducts(data);
-        setIsLoading(false);
+        setProducts(data);         
+        setIsLoading(false);       
       })
       .catch((error) => {
         console.error("Kunde inte hämta produkter:", error);
         setIsLoading(false);
       });
-  }, []);
-
+  }, []); 
+  
   document.title = "Administration";
-
+  
   return (
     <>
       <div className="content-header">
@@ -33,6 +34,7 @@ function AdminProducts() {
         </div>
       </div>
 
+      {/* Innehåller tabellen med alla produkter */}
       <div className="table-container">
         <table className="products-table">
           <thead>
@@ -43,14 +45,19 @@ function AdminProducts() {
             </tr>
           </thead>
           <tbody>
+            
             {isLoading ? (
               <tr>
                 <td colSpan="3">Laddar...</td>
               </tr>
+
+            
             ) : products.length === 0 ? (
               <tr>
                 <td colSpan="3">Inga produkter hittades</td>
               </tr>
+
+            
             ) : (
               products.map((product) => (
                 <tr key={product.id}>
@@ -66,4 +73,7 @@ function AdminProducts() {
     </>
   );
 }
+
+// Exporterar komponenten så att den kan användas i andra delar av projektet
 export default AdminProducts;
+

@@ -1,7 +1,8 @@
 import React from "react";
+import "/src/assets/Footer.css";
 import FooterAccordion from "./FooterAccordion";
 import FooterSection from "./FooterSection";
-import "../../assets/Footer.css";
+
 
 const Footer = () => {
   return (

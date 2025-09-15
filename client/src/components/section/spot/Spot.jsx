@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import spot1 from "../../assets/images/Spot1.png";
-import spot2 from "../../assets/images/spot2.jpg";
-import spot3 from "../../assets/images/spot3.jpg";
-import "../../assets/Spot.css";
+import spot1 from "/src/assets/images/spot1.png";
+import spot2 from "/src/assets/images/spot2.jpg";
+import spot3 from "/src/assets/images/spot3.jpg";
+import "/src/assets/Spot.css";
 
 function Spots() {
   return (

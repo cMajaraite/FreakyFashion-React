@@ -10,7 +10,7 @@ const SimilarProducts = ({ currentProductId }) => {
   useEffect(() => {
     if (!currentProductId) {
       setLoading(false);
-      return;
+      return; // avbryter funktionen 
     }
 
     setLoading(true);
@@ -24,7 +24,7 @@ const SimilarProducts = ({ currentProductId }) => {
 
       .then((data) => {
         console.log("Similar products:", data);
-        setSimilarProducts(data || []);
+        setSimilarProducts(data || []); // Om data finns – använd det. Annars – använd en tom lista ([]).
         setLoading(false);
       })
       .catch((error) => {
