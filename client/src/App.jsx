@@ -1,94 +1,47 @@
+// src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CategoryPage from "./components/category/CategoryPage";
 import Head from "./components/head/Head";
-import Header from "./components/header/Header";
-import "./assets/global.css";
-import Hero from "./components/hero/Hero";
-import Spot from "./components/spot/Spot";
-import ProductGrid from "./components/products/Productgrid";
-import FeatureList from "./components/feature/FeatureList";
-import Footer from "./components/footer/Footer";
-import SearchResults from "./components/search/SearchResults";
-import ProductDetails from "./components/products/ProductDetails";
+import Layout from "./components/layout/Layout";
+
+// Pages
+import HomePage from "./components/pages/HomePage";
+import CategoryPage from "./components/pages/CategoryPage";
+import ProductPage from "./components/pages/ProductPage";
+import SearchPage from "./components/pages/SearchPage";
+
+// Admin
 import AdminLayout from "./layouts/AdminLayout";
 import AdminProducts from "./routes/AdminProducts/AdminProducts";
 import NewProduct from "./routes/NewProduct/NewProduct";
-import "./App.css";
 
+// Global CSS
+import "./assets/global.css";
+import "./App.css";
+import AdminCategories from "./routes/AdminCategories/AdminCategories";
+import NewCategory from "./routes/NewCategory/NewCategory";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Head title="Freaky Fashion" />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <main>
-                  <Hero
-                    title="Utforska de senaste trenderna"
-                    text="Handla idag och få exklusiva erbjudanden!"
-                  />
-                  <Spot />
-                  <ProductGrid />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/kategori/:category"
-            element={
-              <>
-                <Header />
-                <main>
-                  <CategoryPage />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/search"
-            element={
-              <>
-                <Header />
-                <main>
-                  <SearchResults />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/products/:slug"
-            element={
-              <>
-                <Header />
-                <main>
-                  <ProductDetails />
-                  <FeatureList />
-                </main>
-                <Footer />
-              </>
-            }
-          />
+      <Head title="Freaky Fashion" />
 
-          {/* Admin-sidor*/}
+      <Routes>
+        {/* Vanliga användarsidor - wrapped in Layout */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="kategori/:category" element={<CategoryPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="products/:slug" element={<ProductPage />} />
+        </Route>
 
-          <Route path="/admin/*" element={<AdminLayout />}>
-            <Route path="products" element={<AdminProducts />} />
-            <Route path="products/new" element={<NewProduct />} />
-            <Route index element={<AdminProducts />} />
-          </Route>
-        </Routes>
-      </div>
+        <Route path="/admin/*" element={<AdminLayout />}>
+          <Route path="products" element={<AdminProducts />} />
+          <Route path="products/new" element={<NewProduct />} />
+          <Route index element={<AdminProducts />} />
+          <Route path="categories" element={<AdminCategories />} />
+          <Route path="categories/new" element={<NewCategory />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
