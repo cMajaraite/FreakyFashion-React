@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/Footer.css";
+import "/src/assets/Footer.css";
 import FooterAccordion from "./FooterAccordion";
 import FooterSection from "./FooterSection";
 

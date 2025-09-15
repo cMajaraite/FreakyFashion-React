@@ -1,6 +1,6 @@
 import React from "react";
-import heroImage from "../../assets/images/hero1.jpg"; // Anpassa sökvägen till din bild
-import "../../assets/Hero.css";
+import heroImage from "/src/assets/images/hero1.jpg";
+import "/src/assets/Hero.css";
 
 function Hero({ title, text }) {
   return (

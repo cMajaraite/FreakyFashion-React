@@ -23,22 +23,20 @@ function App() {
     <BrowserRouter>
       <Head title="Freaky Fashion" />
 
-      {/* Vanliga användarsidor */}
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/kategori/:category" element={<CategoryPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/products/:slug" element={<ProductPage />} />
-        </Routes>
-      </Layout>
-
-      {/* Admin-sidor */}
       <Routes>
-        <Route path="/admin/*" element={<AdminLayout />}>
+        {/* Vanliga användarsidor - wrapped in Layout */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="kategori/:category" element={<CategoryPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="products/:slug" element={<ProductPage />} />
+        </Route>
+
+        {/* Admin-sidor - separate layout */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminProducts />} />
           <Route path="products" element={<AdminProducts />} />
           <Route path="products/new" element={<NewProduct />} />
-          <Route index element={<AdminProducts />} />
         </Route>
       </Routes>
     </BrowserRouter>
