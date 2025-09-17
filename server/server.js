@@ -300,6 +300,25 @@ app.get("/products/search", (req, res) => {
   }
 });
 
+app.get("/api/spot-texts", (req, res) => {
+  try {
+    const rows = db
+      .prepare("SELECT spot_key, display_text FROM spot_texts ORDER BY spot_key")
+      .all();
+    
+    // Konvertera till objekt för enklare användning
+    const textsObject = {};
+    rows.forEach(row => {
+      textsObject[row.spot_key] = row.display_text;
+    });
+    
+    res.json(textsObject);
+  } catch (error) {
+    console.error("Fel vid hämtning av spot texts:", error);
+    res.status(500).json({ error: "Något gick fel med spot texts" });
+  }
+});
+
 // Hämta produkter via kategori
 app.get("/products/category/:categoryId", (req, res) => {
   const { categoryId } = req.params;
