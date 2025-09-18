@@ -1,9 +1,9 @@
-
 -- En-till-många relation: En kategori kan ha många produkter
 
 -- Ta bort gamla tabeller om de finns
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS spot_texts;
 
 -- STEG 1: Skapa categories-tabellen (master table)
 CREATE TABLE categories (
@@ -28,13 +28,28 @@ CREATE TABLE products (
   FOREIGN KEY (category_id) REFERENCES categories (id)
 );
 
--- STEG 3: Lägg till grundkategorier
+-- STEG 3: Skapa spot_texts-tabellen (oberoende av andra tabeller)
+CREATE TABLE spot_texts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    spot_key TEXT NOT NULL UNIQUE, -- e.g., 'women', 'men', 'kids'
+    display_text TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- STEG 4: Lägg till grundkategorier
 INSERT INTO categories (name, image) VALUES 
 ('Dam', NULL),
 ('Herr', NULL),
 ('Barn', NULL);
 
--- STEG 4: Lägg till testprodukter med kategori-relationer (din data + category_id)
+-- STEG 5: Lägg till spot texts (för dynamiska labels)
+INSERT INTO spot_texts (spot_key, display_text) VALUES
+('women', 'KVINNOR'),
+('men', 'MÄN'),
+('kids', 'BARN');
+
+-- STEG 6: Lägg till testprodukter med kategori-relationer (din data + category_id)
 INSERT INTO products (id, name, price, brand, image, isNew, slug, description, sku, isFavorite, category_id) VALUES 
 (1, 'Vit Skjorta', '299', 'Levis', '/images/products/vit-skjorta.png', 1, 'Vit-Skjorta', 'En vit skjorta i glatt material', 'AAA111', 1, 1),
 (2, 'Svart Skjorta', '299', 'Levis', '/images/products/svart-skjorta.png', 1, 'Svart-Skjorta', 'Lorem ipsum dolor sit amet', 'BBB111', 0, 1),
@@ -45,7 +60,7 @@ INSERT INTO products (id, name, price, brand, image, isNew, slug, description, s
 (7, 'Denim Kjol', '399', 'Levis', '/images/products/denim-kjol.png', 0, 'Denim-Kjol', 'Lorem ipsum dolor sit amet', 'GGG111', 0, 2),
 (8, 'Blå Klänning', '599', 'Levis', '/images/products/blå-klänning.png', 0, 'Bla-Klanning', 'Lorem ipsum dolor sit amet', 'HHH111', 0, 3);
 
--- STEG 5: Visa relationer med JOIN (test query)
+-- STEG 7: Visa relationer med JOIN (test query)
 SELECT 
   p.name as produkt_namn, 
   p.price, 
@@ -57,3 +72,6 @@ SELECT
 FROM products p 
 LEFT JOIN categories c ON p.category_id = c.id
 ORDER BY c.name, p.name;
+
+-- STEG 8: Test query för spot texts
+SELECT spot_key, display_text FROM spot_texts;
