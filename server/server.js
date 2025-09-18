@@ -5,6 +5,7 @@ import cors from "cors";
 import fs from "fs";
 import multer from "multer";
 
+// Hämta nuvarande arbetskatalog (för att hantera filvägar)
 const __dirname = process.cwd();
 const port = 8000;
 const app = express();
@@ -56,6 +57,17 @@ function setupDb() {
     )
   `);
 
+    // Spot-texts (oberoende tabell)
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS spot_texts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      spot_key TEXT NOT NULL UNIQUE,
+      display_text TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
   // STEG 3: Lägg till grundkategorier om tabellen är tom
   const categoryCount = db
     .prepare("SELECT COUNT(*) as count FROM categories")
@@ -68,6 +80,16 @@ function setupDb() {
     insertCategory.run("Herr", null);
     insertCategory.run("Barn", null);
     console.log("✅ Grundkategorier har lagts till");
+  }
+
+    // Grund spot-texts
+  const spotCount = db.prepare("SELECT COUNT(*) as count FROM spot_texts").get();
+  if (spotCount.count === 0) {
+    const insertSpot = db.prepare("INSERT INTO spot_texts (spot_key, display_text) VALUES (?, ?)");
+    insertSpot.run("women", "KVINNOR");
+    insertSpot.run("men", "MÄN");
+    insertSpot.run("kids", "BARN");
+    console.log("✅ Grund spot-texts har lagts till");
   }
 
   // STEG 4: Lägg till testprodukter om tabellen är tom (din data)
@@ -297,6 +319,25 @@ app.get("/products/search", (req, res) => {
   } catch (error) {
     console.error("DB Error:", error);
     res.status(500).json({ error: "Fel vid hämtning av produkter" });
+  }
+});
+
+app.get("/api/spot-texts", (req, res) => {
+  try {
+    const rows = db
+      .prepare("SELECT spot_key, display_text FROM spot_texts ORDER BY spot_key")
+      .all();
+    
+    // Konvertera till objekt för enklare användning
+    const textsObject = {};
+    rows.forEach(row => {
+      textsObject[row.spot_key] = row.display_text;
+    });
+    
+    res.json(textsObject);
+  } catch (error) {
+    console.error("Fel vid hämtning av spot texts:", error);
+    res.status(500).json({ error: "Något gick fel med spot texts" });
   }
 });
 
