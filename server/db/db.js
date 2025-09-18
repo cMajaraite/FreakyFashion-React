@@ -1,6 +1,7 @@
-const Database = require("better-sqlite3");
+//const Database = require("better-sqlite3");
 
 // Öppna eller skapa databasen
+/*
 const db = new Database("./db/freakyfashion.db", { verbose: console.log });
 
 // Skapa tabellen om den inte redan finns
@@ -159,4 +160,5 @@ if (getAllProducts().length === 0) {
 }
 
 // Exportera funktioner för att användas i server.js
-module.exports = { db, getAllProducts };
+module.exports = { db, getAllProducts };//
+*/
