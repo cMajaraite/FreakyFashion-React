@@ -5,6 +5,7 @@ import cors from "cors";
 import fs from "fs";
 import multer from "multer";
 
+// Hämta nuvarande arbetskatalog (för att hantera filvägar)
 const __dirname = process.cwd();
 const port = 8000;
 const app = express();
