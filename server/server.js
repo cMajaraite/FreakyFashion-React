@@ -31,6 +31,7 @@ function setupDb() {
   const db = new Database(dbPath, { verbose: console.log });
 
   // STEG 1: Skapa categories-tabellen FÖRST (master table)
+  // db.exec= sql string som körs när data inte behöver retuneras.
   db.exec(`
     CREATE TABLE IF NOT EXISTS categories (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
