@@ -29,7 +29,7 @@ function App() {
         {/* Vanliga användarsidor - wrapped in Layout */}
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="kategori/:category" element={<CategoryPage />} />
+          <Route path="categories/:category" element={<CategoryPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="products/:slug" element={<ProductPage />} />
         </Route>

@@ -7,8 +7,6 @@ import searchIcon from "/src/assets/svg/search.svg";
 import basketIcon from "/src/assets/svg/varukorg.svg";
 import favoritesIcon from "/src/assets/svg/favorites.svg";
 
-
-
 const Header = () => {
   const [query, setQuery] = useState("");
   const [categories, setCategories] = useState([]);
@@ -25,9 +23,6 @@ const Header = () => {
         console.error("Kunde inte hämta kategorier:", error);
       });
   }, []);
-
-  // Lägg till efter useEffect
-  console.log("Kategorier hämtade:", categories);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -77,10 +72,12 @@ const Header = () => {
       <div className="nav">
         <nav>
           <ul>
-            {/* Dynamisk meny - visar kategorier från databasen */}
+            {/* Dynamisk meny - använder kategorinamn för snyggare URL */}
             {categories.map((category) => (
               <li key={category.id}>
-                <Link to={`/category/${category.id}`}>{category.name}</Link>
+                <Link to={`/categories/${category.name.toLowerCase()}`}>
+                  {category.name}
+                </Link>
               </li>
             ))}
           </ul>
