@@ -7,8 +7,8 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": "http://localhost:8000",
-      "/categories": "http://localhost:8000", // Lägg till denna rad
-      "/products": "http://localhost:8000", // Lägg till denna rad också
+      "/categories": "http://localhost:8000",
+      "/products": "http://localhost:8000",
     },
   },
 });
